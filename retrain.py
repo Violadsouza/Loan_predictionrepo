@@ -6,6 +6,8 @@ import joblib
 def main():
     # Load data from CSV
     data = pd.read_csv('data/loan_data.csv')
+    data = data.drop('Loan_ID', axis=1)
+
 
     # Separate features (X) and target (y)
     X = data.drop('Loan_Status', axis=1)
