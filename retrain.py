@@ -4,7 +4,7 @@ import joblib
 
 def main():
     # Load data
-    df = pd.read_csv('data/loan_data.csv')
+    df = pd.read_csv('loan_data.csv')
 
     # Drop 'Loan_ID' column
     if 'Loan_ID' in df.columns:
