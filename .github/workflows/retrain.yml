@@ -3,7 +3,7 @@ name: Retrain Model on Data Update
 on:
   push:
     paths:
-      - 'data/loan_data.csv'  # Trigger retrain only if your data file changes
+      - 'loan_data.csv'  # Trigger retrain only if your data file changes
 
 jobs:
   retrain:
