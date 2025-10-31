@@ -1,0 +1,25 @@
+name: Monitor Model Drift
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # runs daily at midnight UTC
+  workflow_dispatch:      # allows manual trigger in GitHub UI
+
+jobs:
+  check-drift:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: pip install pandas scikit-learn scipy joblib
+
+    - name: Run model drift monitoring script
+      run: python monitor_drift.py
